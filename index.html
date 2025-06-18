@@ -2,10 +2,103 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Mon Site</title>
-  <meta name="surfe.pro" content="ddca2bad6d711ab82ceee69e6b60472f">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="surfe-pro" content="ddca2bad6d711ab82ceee69e6b60472f">
+  <title>Mon Blog - Multilingue</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #0a0a23;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #ececec;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav button {
+      background: #0a0a23;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
 </head>
 <body>
-  <h1>Bienvenue sur mon site !</h1>
+  <header>
+    <h1 id="site-title">Bienvenue sur mon blog</h1>
+    <p id="site-subtitle">Un site simple et élégant</p>
+  </header>
+
+  <nav>
+    <button onclick="changeLang('fr')">Français</button>
+    <button onclick="changeLang('en')">English</button>
+    <button onclick="changeLang('ru')">Русский</button>
+  </nav>
+
+  <main>
+    <h2 id="main-title">Titre de l'article</h2>
+    <p id="main-content">Ceci est un exemple d'article de blog. Simple, lisible, et multilingue !</p>
+  </main>
+
+  <footer>
+    &copy; 2025 Mon Blog Multilingue
+  </footer>
+
+  <script>
+    const content = {
+      fr: {
+        title: "Bienvenue sur mon blog",
+        subtitle: "Un site simple et élégant",
+        mainTitle: "Titre de l'article",
+        mainContent: "Ceci est un exemple d'article de blog. Simple, lisible, et multilingue !"
+      },
+      en: {
+        title: "Welcome to my blog",
+        subtitle: "A simple and elegant site",
+        mainTitle: "Article Title",
+        mainContent: "This is a sample blog post. Simple, readable, and multilingual!"
+      },
+      ru: {
+        title: "Добро пожаловать в мой блог",
+        subtitle: "Простой и стильный сайт",
+        mainTitle: "Заголовок статьи",
+        mainContent: "Это пример записи в блоге. Просто, читаемо и многоязычно!"
+      }
+    };
+
+    function changeLang(lang) {
+      document.getElementById('site-title').textContent = content[lang].title;
+      document.getElementById('site-subtitle').textContent = content[lang].subtitle;
+      document.getElementById('main-title').textContent = content[lang].mainTitle;
+      document.getElementById('main-content').textContent = content[lang].mainContent;
+    }
+  </script>
 </body>
 </html>
